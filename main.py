@@ -84,7 +84,7 @@ class GameEndResults:
 # Drives the program. Handles the whole game loop
 def main():
     global player, game_loop, game_block, player_guess
-    game_intro()
+    game_intro()  # Plays the game's intro for the first time
 
     print_blocks()
     blocks_array = ("line", "t block", "s block")  # Player types these to guess the next block
@@ -127,6 +127,7 @@ def main():
             print("Invalid input. Please type either \"y\" or \"n\"")
 
 
+# Main to start the program
 if __name__ == "__main__":
     global game_block, player_guess
     main()
