@@ -42,7 +42,7 @@ def game_intro():
         """)
         print("To see the intro again, simply type \"intro\" at any time.\n")
     else:
-        print("To see the intro again, simply type \"intro\" at any time.\n")
+        print("To see the intro, simply type \"intro\" at any time.\n")
 
 
 def print_blocks():
