@@ -108,6 +108,7 @@ def main():
         user_retry = input("Play again? [y/n]: ")
         user_retry = user_retry.upper()
 
+        # make this loop if invalid
         if user_retry == "Y":  # Game will loop as long as the user keeps entering "y"
             game_loop = True
             continue
