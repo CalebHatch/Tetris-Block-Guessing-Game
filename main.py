@@ -3,6 +3,7 @@ Tetris Block Guesser
 by: Caleb Hatch
 """
 import numpy
+from termcolor import colored
 
 
 # Class to keep track of player points
@@ -84,12 +85,15 @@ class GameEndResults:
 # Drives the program. Handles the whole game loop
 def main():
     global player, game_loop, game_block, player_guess
-    debug_mode = False
+    debug_mode = False  # debug mode turned off by default
 
     game_intro()  # Plays the game's intro for the first time
+
+    # Sets up debug mode for the player, if wanted
     user_debug = input("Would you like to activate debug mode? [y/n]: ")
     user_debug = user_debug.upper()
 
+    # Conditional to make debug boolean true or false
     if user_debug == "Y":
         debug_mode = True
     elif user_debug == "N":
@@ -102,8 +106,12 @@ def main():
         game_block = numpy.random.choice(blocks_array)  # Chooses random block from array
 
         print(blocks_array)
+
+        # Adds debug message that tells player what the answer is.
         if debug_mode:
-            print(game_block)
+            print(colored("[DEBUG MESSAGE]", "red"))
+            print("The answer is: " + game_block)
+
         player_guess = input("What is the next block?: ")
 
         # Conditional for if the player's guess is right or wrong
