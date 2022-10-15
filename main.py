@@ -109,8 +109,9 @@ def main():
 
         # Adds debug message that tells player what the answer is.
         if debug_mode:
-            print(colored("[DEBUG MESSAGE]", "red"))
+            print(colored("\n[DEBUG MESSAGE]", "red"))
             print("The answer is: " + game_block)
+            print("")
 
         player_guess = input("What is the next block?: ")
 
