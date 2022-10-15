@@ -110,7 +110,7 @@ def main():
             print("Your score reached zero!")
             GameEndResults.player_end_state()
 
-        if player.points >= 500:
+        if player.points >= 400:
             print("Your score reached " + str(player.points) + ". You win!")
             GameEndResults.player_end_state()
 
