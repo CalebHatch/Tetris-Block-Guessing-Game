@@ -16,6 +16,14 @@ player = Player(300)
 game_loop = True
 
 
+def print_blocks():
+    print("""
+                              []
+                []    [][]    []     [][]
+    [][][][], [][][],   [][], [][] , [][]
+    """)
+
+
 # Contains conditions for all three game endings
 class GameEndResults:
     global game_block, player_guess
@@ -46,6 +54,7 @@ class GameEndResults:
 def main():
     global player, game_loop, game_block, player_guess
 
+    print_blocks()
     blocks_array = ("line", "t block", "s block", "L block", "square block")
 
     while game_loop:
