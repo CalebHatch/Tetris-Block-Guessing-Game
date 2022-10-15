@@ -93,6 +93,7 @@ def main():
         game_block = numpy.random.choice(blocks_array)  # Chooses random block from array
 
         print(blocks_array)
+        print(game_block)
         player_guess = input("What is the next block?: ")
 
         # Conditional for if the player's guess is right or wrong
@@ -110,7 +111,7 @@ def main():
             print("Your score reached zero!")
             GameEndResults.player_end_state()
 
-        if player.points >= 400:
+        if player.points >= 500:
             print("Your score reached " + str(player.points) + ". You win!")
             GameEndResults.player_end_state()
 
