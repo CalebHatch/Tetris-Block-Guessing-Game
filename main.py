@@ -5,17 +5,18 @@ by: Caleb Hatch
 import numpy
 
 
-# Keeps track of the amount of the player's points.
+# Class to keep track of player points
 class Player:
     def __init__(self, points):
         self.points = points
 
 
-player = Player(300)
+player = Player(300)  # Player score initializer
 
-game_loop = True
+game_loop = True  # Allows the while loop for the game to run
 
 
+# Function to play the game's intro. Can be repeated at any time.
 def game_intro():
     print("Welcome to Tetris Block Guesser!")
     tutorial_response = input("Would you like a brief tutorial on how the game works? [y/n] ")
@@ -45,6 +46,7 @@ def game_intro():
         print("To see the intro, simply type \"intro\" at any time.\n")
 
 
+# Prints the blocks that the player can choose from.
 def print_blocks():
     print("""          
                 []    [][]   
@@ -52,7 +54,7 @@ def print_blocks():
     """)
 
 
-# Contains conditions for all three game endings
+# Class to handle the conditions for ending the game for the player.
 class GameEndResults:
     global game_block, player_guess
 
@@ -79,42 +81,47 @@ class GameEndResults:
         quit()
 
 
+# Drives the program. Handles the whole game loop
 def main():
     global player, game_loop, game_block, player_guess
     game_intro()
 
     print_blocks()
-    blocks_array = ("line", "t block", "s block")
+    blocks_array = ("line", "t block", "s block")  # Player types these to guess the next block
 
     while game_loop:
-        game_block = numpy.random.choice(blocks_array)
+        game_block = numpy.random.choice(blocks_array)  # Chooses random block from array
 
         print(blocks_array)
         player_guess = input("What is the next block?: ")
 
+        # Conditional for if the player's guess is right or wrong
         if game_block == player_guess:
             GameEndResults.win_result()
         elif game_block != player_guess:
             GameEndResults.loss_result()
 
+        # Allows the game's intro to be replayed
         if player_guess == "intro":
             game_intro()
 
+        # Lose condition. Game ends if the player's score reaches zero
         if player.points <= 0:
-            print("Your score reached below zero!")
+            print("Your score reached zero!")
             GameEndResults.player_end_state()
 
+        # Prints the player's score and asks if they would like to play again
         print("Your score is: " + str(player.points) + ".")
         user_retry = input("Play again? [y/n]: ")
-        user_retry = user_retry.upper()
+        user_retry = user_retry.upper()  # Allows the user to type "y" or "n" in caps or lower
 
         # make this loop if invalid
         if user_retry == "Y":  # Game will loop as long as the user keeps entering "y"
             game_loop = True
             continue
-        elif user_retry == "N":
+        elif user_retry == "N":  # Game ends if player selects "N"
             GameEndResults.player_end_state()
-        elif user_retry == "INTRO":
+        elif user_retry == "INTRO":  # Allows the intro to be replayed
             game_intro()
         else:
             print("Invalid input. Please type either \"y\" or \"n\"")
