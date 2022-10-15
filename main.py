@@ -84,7 +84,16 @@ class GameEndResults:
 # Drives the program. Handles the whole game loop
 def main():
     global player, game_loop, game_block, player_guess
+    debug_mode = False
+
     game_intro()  # Plays the game's intro for the first time
+    user_debug = input("Would you like to activate debug mode? [y/n]: ")
+    user_debug = user_debug.upper()
+
+    if user_debug == "Y":
+        debug_mode = True
+    elif user_debug == "N":
+        debug_mode = False
 
     print_blocks()
     blocks_array = ("line", "t block", "s block")  # Player types these to guess the next block
@@ -93,7 +102,8 @@ def main():
         game_block = numpy.random.choice(blocks_array)  # Chooses random block from array
 
         print(blocks_array)
-        print(game_block)
+        if debug_mode:
+            print(game_block)
         player_guess = input("What is the next block?: ")
 
         # Conditional for if the player's guess is right or wrong
