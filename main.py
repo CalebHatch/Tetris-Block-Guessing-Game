@@ -20,7 +20,7 @@ game_loop = True  # Allows the while loop for the game to run
 def game_intro():
     print("Welcome to Tetris Block Guesser!")
     tutorial_response = input("Would you like a brief tutorial on how the game works? [y/n] ")
-    tutorial_response = tutorial_response.upper()
+    tutorial_response = tutorial_response.upper()  # Player can type "y" or "n" in either upper or lower case
 
     if tutorial_response == "Y":
         print("This game is a representation of the preview window for the next block that comes up in the game "
@@ -108,6 +108,10 @@ def main():
         # Lose condition. Game ends if the player's score reaches zero
         if player.points <= 0:
             print("Your score reached zero!")
+            GameEndResults.player_end_state()
+
+        if player.points >= 500:
+            print("Your score reached " + str(player.points) + ". You win!")
             GameEndResults.player_end_state()
 
         # Prints the player's score and asks if they would like to play again
