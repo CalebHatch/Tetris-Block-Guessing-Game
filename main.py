@@ -84,11 +84,10 @@ def main():
     game_intro()
 
     print_blocks()
-    blocks_array = ("line", "t block", "s block", "L block")
+    blocks_array = ("line", "t block", "s block")
 
     while game_loop:
         game_block = numpy.random.choice(blocks_array)
-        print(game_block)  # for debug
 
         print(blocks_array)
         player_guess = input("What is the next block?: ")
