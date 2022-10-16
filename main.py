@@ -63,7 +63,21 @@ class GameEndResults:
     @staticmethod
     def win_result():
         print("Next block was " + str(game_block) + ", and you guessed \"" + str(
-            player_guess) + "\". You got it!\n")
+            player_guess) + "\". You got it!")
+        if player_guess == "line":
+            print("""
+            [][][][]
+            """)
+        elif player_guess == "t block":
+            print("""
+              []
+            [][][]
+            """)
+        elif player_guess == "s block":
+            print("""
+            [][]
+              [][]
+            """)
         player.points = (player.points + 100)
 
     # For when the player guesses incorrectly. Takes 25 from sore
@@ -118,12 +132,10 @@ def main():
         # Conditional for if the player's guess is right or wrong
         if game_block == player_guess:
             GameEndResults.win_result()
+        elif player_guess == "intro":  # Allows the game's intro to be replayed
+            game_intro()
         elif game_block != player_guess:
             GameEndResults.loss_result()
-
-        # Allows the game's intro to be replayed
-        if player_guess == "intro":
-            game_intro()
 
         # Lose condition. Game ends if the player's score reaches zero
         if player.points <= 0:
