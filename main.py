@@ -62,8 +62,7 @@ class GameEndResults:
     # For when the player guesses correctly. Adds 100 to score
     @staticmethod
     def win_result():
-        print("Next block was " + str(game_block) + ", and you guessed \"" + str(
-            player_guess) + "\". You got it!")
+        print("Next block was " + str(game_block) + ", and you guessed \"" + str(player_guess) + "\". You got it!")
         if player_guess == "line":
             print("""
             [][][][]
@@ -112,8 +111,10 @@ def main():
         debug_mode = True
     elif user_debug == "N":
         debug_mode = False
+    elif user_debug == "INTRO":
+        game_intro()
 
-    print_blocks()
+    print_blocks()  # Prints out the blocks the player can guess from
     blocks_array = ("line", "t block", "s block")  # Player types these to guess the next block
 
     while game_loop:
