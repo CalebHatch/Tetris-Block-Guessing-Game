@@ -8,7 +8,7 @@ I made a game that will randomly choose a Tetris block out of an array of three,
 
 Debug mode will let you see what the next block is before it is asked.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/n3WOcjh4EfE)
 
 # Development Environment
 
